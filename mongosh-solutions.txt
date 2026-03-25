@@ -18,3 +18,5 @@ Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.authors.insertOne(
   acknowledged: true,
   insertedId: ObjectId('69c423b039920e5ba911402a')
 }
+Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.createCollection("logs",{capped:true,size:1000000})
+{ ok: 1 }

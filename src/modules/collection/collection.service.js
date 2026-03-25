@@ -10,3 +10,8 @@ export const bookModel = async() => {await db.createCollection("books", {
 
 
 export const authorModel = await db.createCollection("authors");
+
+
+export const logsModel = async() =>{
+    await db.createCollection("logs",{capped:true,size:1000000});
+}
