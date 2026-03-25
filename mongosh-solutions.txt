@@ -20,3 +20,10 @@ Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.authors.insertOne(
 }
 Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.createCollection("logs",{capped:true,size:1000000})
 { ok: 1 }
+Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.books.createIndex( { title: 1 })
+title_1
+Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.books.insertOne({title: "Book1",  author: "Ali",  year: 1937,genres: ["Fantasy", "Adventure"]})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69c4335139920e5ba911402b')
+}
