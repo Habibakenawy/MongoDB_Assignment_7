@@ -13,4 +13,8 @@ Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.createCollectiAtla
 { ok: 1 }
 Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> show collections
 books
-
+Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.authors.insertOne({name:"Author1",nationality:"British"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69c423b039920e5ba911402a')
+}

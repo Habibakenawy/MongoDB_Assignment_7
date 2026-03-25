@@ -7,3 +7,6 @@ export const bookModel = async() => {await db.createCollection("books", {
             properties: { title: { bsonType: "string",description: "must be a non-empty string" } }
         }}
     })}
+
+
+export const authorModel = await db.createCollection("authors");
