@@ -1,0 +1,16 @@
+PS C:\WINDOWS\system32> mongosh "mongodb+srv://cluster0.brr9jmn.mongodb.net/" --apiVersion 1 --username HabibaKenawy
+Enter password: *********
+Current Mongosh Log ID: 69c3e1ad39920e5ba9114029
+Connecting to:          mongodb+srv://<credentials>@cluster0.brr9jmn.mongodb.net/?appName=mongosh+2.8.1
+Using MongoDB:          8.0.20 (API Version 1)
+Using Mongosh:          2.8.1
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+Atlas atlas-zetzyb-shard-0 [primary] test> use MongoDB_Assignment_7
+switched to db MongoDB_Assignment_7
+Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> db.createCollectiAtlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7>  db.createCollection("books",{validator:{$jsonSchema:{bsonType:"object",required:["title"],properties:{title:{bsonType:"string",description: "must be a non-empty string"}}}}})
+{ ok: 1 }
+Atlas atlas-zetzyb-shard-0 [primary] MongoDB_Assignment_7> show collections
+books
+
