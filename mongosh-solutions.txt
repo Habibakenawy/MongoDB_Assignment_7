@@ -62,3 +62,11 @@ Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.insertMany([
   acknowledged: true,
   insertedId: ObjectId('69d288fd5019a5041a11402f')
 }
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.updateOne({title:"Future"},{$set:{year:2022}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
