@@ -14,3 +14,7 @@ return await db.collection("books").insertMany(doc);
 export const updateBook = async() => {
 return await db.collection("books").updateOne({title:"Future"},{$set:{year:2022}});
 }
+
+export const findBookbyTitle = async(name) => {
+return await db.collection("books").findOne({title:name});
+}

@@ -70,3 +70,11 @@ Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.updateOne({t
   modifiedCount: 0,
   upsertedCount: 0
 }
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.findOne({title:"Brave New World"})
+{
+  _id: ObjectId('69d286ab9e265bba82e1184f'),
+  title: 'Brave New World',
+  author: 'Aldous Huxley',
+  year: 2006,
+  genres: [ 'Dystopian', 'Science Fiction' ]
+}

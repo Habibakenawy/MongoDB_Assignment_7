@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { insertIntoBookModel,insertManyIntoBookModel,updateBook} from "./book.service.js";
+import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle} from "./book.service.js";
 
 const router = Router()
 
@@ -22,6 +22,13 @@ router.patch("/Future" , async (req,res,next)=>{
     const result =  await updateBook()
     return res.status(201).json({message:"Book Date Updated" , result})
 })
+
+
+router.get("/title" , async (req,res,next)=>{
+    const result =  await findBookbyTitle(req.query.title)
+    return res.status(200).json({message:"Book Found" , result})
+})
+
 
 
 
