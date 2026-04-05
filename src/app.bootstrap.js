@@ -4,6 +4,7 @@ import { authenticateDB } from './DB/connection.db.js'
 import { bookRouter } from './modules/book/index.js'
 import { authRouter, collectionRouter, userRouter } from './modules/index.js'
 import express from 'express'
+import { logRouter } from './modules/logs/index.js'
 
 async function bootstrap() {
     const app = express()
@@ -18,6 +19,7 @@ async function bootstrap() {
     app.use('/user', userRouter)
     app.use('/collection',collectionRouter)
     app.use('/books',bookRouter)
+    app.use('/logs',logRouter)
 
 
 
