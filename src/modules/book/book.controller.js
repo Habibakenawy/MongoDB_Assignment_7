@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle} from "./book.service.js";
+import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears} from "./book.service.js";
 
 const router = Router()
 
@@ -30,6 +30,10 @@ router.get("/title" , async (req,res,next)=>{
 })
 
 
+router.get("/year" , async (req,res,next)=>{
+    const result =  await findBooksBetweenYears(req.query.from,req.query.to)
+    return res.status(200).json({message:"Book Found" , result})
+})
 
 
 
