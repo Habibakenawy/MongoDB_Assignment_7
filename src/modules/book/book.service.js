@@ -34,3 +34,7 @@ export const findBooKByGenre = async (bookGenre) =>{
 export const skipAndLimit = async () =>{
   return await db.collection("books").find().skip(2).limit(3).sort({year:-1}).toArray()
 }
+
+export const checkYearInt= async () =>{
+  return await db.collection("books").find({year:{$type:"int"}}).toArray();
+}

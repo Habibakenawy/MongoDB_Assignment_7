@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre,skipAndLimit} from "./book.service.js";
+import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre,skipAndLimit,checkYearInt} from "./book.service.js";
 
 const router = Router()
 
@@ -47,7 +47,10 @@ router.get("/skip-limit" , async (req,res,next)=>{
 })
 
 
-
+router.get("/year-integer" , async (req,res,next)=>{
+    const result =  await checkYearInt()
+    return res.status(200).json({message:"Book Found" , result})
+})
 
 
 
