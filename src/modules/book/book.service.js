@@ -54,5 +54,16 @@ export const excludeGenres = async () => {
 };
 
 export const deleteBeforeDate = async (date) => {
-  return await db.collection("books").deleteMany({ year: { $lt: Number(date) } });
+  return await db
+    .collection("books")
+    .deleteMany({ year: { $lt: Number(date) } });
 };
+
+export const aggregateBooksAfter2000 = async () => {
+  return await db
+    .collection("books")
+    .aggregate([{ $match: { year: { $gt: 2000 } } }, { $sort: { year: -1 } }])
+    .toArray();
+};
+
+
