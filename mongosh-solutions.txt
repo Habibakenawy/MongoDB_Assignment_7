@@ -277,3 +277,48 @@ Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.aggregate([{
   { title: 'Future', author: 'George Orwell', year: 2020 },
   { title: 'Brave New World', author: 'Aldous Huxley', year: 2006 }
 ]
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.aggregate([{ $unwind: "$genres" }, ]) .toArray();
+[
+  {
+    _id: ObjectId('69d286ab9e265bba82e1184d'),
+    title: 'Future',
+    author: 'George Orwell',
+    year: 2022,
+    genres: 'Science Fiction'
+  },
+  {
+    _id: ObjectId('69d286ab9e265bba82e1184f'),
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 2006,
+    genres: 'Dystopian'
+  },
+  {
+    _id: ObjectId('69d286ab9e265bba82e1184f'),
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 2006,
+    genres: 'Science Fiction'
+  },
+  {
+    _id: ObjectId('69d286f35019a5041a11402c'),
+    title: 'Future',
+    author: 'George Orwell',
+    year: 2020,
+    genres: 'Science Fiction'
+  },
+  {
+    _id: ObjectId('69d286f35019a5041a11402e'),
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 2006,
+    genres: 'Dystopian'
+  },
+  {
+    _id: ObjectId('69d286f35019a5041a11402e'),
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 2006,
+    genres: 'Science Fiction'
+  }
+]

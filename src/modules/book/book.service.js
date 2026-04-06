@@ -75,3 +75,12 @@ export const aggregateBooksAfter2000AndExludeFields = async () => {
     ])
     .toArray();
 };
+
+export const aggregateBooksAndBreakArray = async () => {
+  return await db
+    .collection("books")
+    .aggregate([
+      { $unwind: "$genres" },
+    ])
+    .toArray();
+};
