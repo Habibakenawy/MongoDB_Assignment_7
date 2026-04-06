@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre,skipAndLimit,checkYearInt, excludeGenres, deleteBeforeDate,aggregateBooksAfter2000,aggregateBooksAfter2000AndExludeFields,aggregateBooksAndBreakArray} from "./book.service.js";
+import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre,skipAndLimit,checkYearInt, excludeGenres, deleteBeforeDate,aggregateBooksAfter2000,aggregateBooksAfter2000AndExludeFields,aggregateBooksAndBreakArray,joinLogsAndBooks} from "./book.service.js";
 
 const router = Router()
 
@@ -77,5 +77,11 @@ router.get("/aggregate3" , async (req,res,next)=>{
     const result =  await aggregateBooksAndBreakArray()
     return res.status(200).json({message:"Books filtered" , result})
 })
+
+router.get("/aggregate4" , async (req,res,next)=>{
+    const result =  await joinLogsAndBooks()
+    return res.status(200).json({message:"Books filtered" , result})
+})
+
 
 export default router

@@ -322,3 +322,34 @@ Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.aggregate([{
     genres: 'Science Fiction'
   }
 ]
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7>  db.logs    .aggregate([   { $lookup:{   from:"books",    localField:"book_id",        foreignField:"_id",     as:"book_details" } },  ])  .toArray();
+[
+  {
+    _id: ObjectId('69d41797924d32f9df6e82ad'),
+    book_id: ObjectId('69d286ab9e265bba82e1184f'),
+    action: 'borrowed',
+    book_details: [
+      {
+        _id: ObjectId('69d286ab9e265bba82e1184f'),
+        title: 'Brave New World',
+        author: 'Aldous Huxley',
+        year: 2006,
+        genres: [ 'Dystopian', 'Science Fiction' ]
+      }
+    ]
+  },
+  {
+    _id: ObjectId('69d417f4924d32f9df6e82ae'),
+    book_id: ObjectId('69d286f35019a5041a11402e'),
+    action: 'borrowed',
+    book_details: [
+      {
+        _id: ObjectId('69d286f35019a5041a11402e'),
+        title: 'Brave New World',
+        author: 'Aldous Huxley',
+        year: 2006,
+        genres: [ 'Dystopian', 'Science Fiction' ]
+      }
+    ]
+  }
+]

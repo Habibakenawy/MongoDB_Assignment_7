@@ -84,3 +84,50 @@ export const aggregateBooksAndBreakArray = async () => {
     ])
     .toArray();
 };
+
+
+export const joinLogsAndBooks = async () => {
+  return await db
+    .collection("logs")
+    .aggregate([
+      { $lookup:{
+        from:"books",
+        localField:"book_id",
+        foreignField:"_id",
+        as:"book_details"
+      } },
+    ])
+    .toArray();
+};
+
+// export const joinLogsAndBooks = async () => {
+//   return await db.collection("logs").aggregate([
+//     {
+//       //ensure book_id is definitely an ObjectId before joining
+//       $addFields: {
+//         book_id_converted: { $toObjectId: "$book_id" }
+//       }
+//     },
+//     {
+//       $lookup: {
+//         from: "books",            
+//         localField: "book_id_converted",
+//         foreignField: "_id",
+//         as: "book_details"
+//       }
+//     },
+//     {
+//       // Filter out any logs that didn't find a match
+//       $match: { 
+//         "book_details": { $not: { $size: 0 } } 
+//       }
+//     },
+//     {
+//       $project: {
+//         _id: 0,
+//         action: 1,
+//         book_details: 1
+//       }
+//     }
+//   ]).toArray();
+// };
