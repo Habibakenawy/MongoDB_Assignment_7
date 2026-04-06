@@ -24,3 +24,9 @@ export const findBooksBetweenYears = async (y1, y2) => {
     .find({ year: { $gte: Number(y1), $lte: Number(y2) } })
     .toArray();
 };
+
+
+export const findBooKByGenre = async (bookGenre) =>{
+ return await db.collection("books").find({genres:bookGenre}).toArray();
+
+}
