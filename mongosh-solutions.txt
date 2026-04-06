@@ -109,3 +109,27 @@ Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.find({genres
     genres: [ 'Dystopian', 'Science Fiction' ]
   }
 ]
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.find().skip(2).limit(3).sort({year:-1}).toArray()
+[
+  {
+    _id: ObjectId('69d286f35019a5041a11402e'),
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 2006,
+    genres: [ 'Dystopian', 'Science Fiction' ]
+  },
+  {
+    _id: ObjectId('69d286ab9e265bba82e1184f'),
+    title: 'Brave New World',
+    author: 'Aldous Huxley',
+    year: 2006,
+    genres: [ 'Dystopian', 'Science Fiction' ]
+  },
+  {
+    _id: ObjectId('69d286f35019a5041a11402d'),
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    year: 1960,
+    genres: [ 'Classic', 'Fiction' ]
+  }
+]

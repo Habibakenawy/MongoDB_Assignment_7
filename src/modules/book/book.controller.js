@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre} from "./book.service.js";
+import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre,skipAndLimit} from "./book.service.js";
 
 const router = Router()
 
@@ -41,6 +41,10 @@ router.get("/genre" , async (req,res,next)=>{
     return res.status(200).json({message:"Book Found" , result})
 })
 
+router.get("/skip-limit" , async (req,res,next)=>{
+    const result =  await skipAndLimit()
+    return res.status(200).json({message:"Book Found" , result})
+})
 
 
 

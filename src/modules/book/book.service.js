@@ -30,3 +30,7 @@ export const findBooKByGenre = async (bookGenre) =>{
  return await db.collection("books").find({genres:bookGenre}).toArray();
 
 }
+
+export const skipAndLimit = async () =>{
+  return await db.collection("books").find().skip(2).limit(3).sort({year:-1}).toArray()
+}
