@@ -25,16 +25,34 @@ export const findBooksBetweenYears = async (y1, y2) => {
     .toArray();
 };
 
+export const findBooKByGenre = async (bookGenre) => {
+  return await db.collection("books").find({ genres: bookGenre }).toArray();
+};
 
-export const findBooKByGenre = async (bookGenre) =>{
- return await db.collection("books").find({genres:bookGenre}).toArray();
+export const skipAndLimit = async () => {
+  return await db
+    .collection("books")
+    .find()
+    .skip(2)
+    .limit(3)
+    .sort({ year: -1 })
+    .toArray();
+};
 
-}
+export const checkYearInt = async () => {
+  return await db
+    .collection("books")
+    .find({ year: { $type: "int" } })
+    .toArray();
+};
 
-export const skipAndLimit = async () =>{
-  return await db.collection("books").find().skip(2).limit(3).sort({year:-1}).toArray()
-}
+export const excludeGenres = async () => {
+  return await db
+    .collection("books")
+    .find({ genres: { $nin: ["Horror", "Science Fiction"] } })
+    .toArray();
+};
 
-export const checkYearInt= async () =>{
-  return await db.collection("books").find({year:{$type:"int"}}).toArray();
-}
+export const deleteBeforeDate = async (date) => {
+  return await db.collection("books").deleteMany({ year: { $lt: Number(date) } });
+};

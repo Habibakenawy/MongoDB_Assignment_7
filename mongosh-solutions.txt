@@ -199,3 +199,43 @@ Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7>  db.books.find({year:
     genres: [ 'Dystopian', 'Science Fiction' ]
   }
 ]
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.find({genres:{$nin:["Horror", "Science Fiction"]}}).toArray()
+[
+  {
+    _id: ObjectId('69d284e85019a5041a11402b'),
+    title: 'Book1',
+    author: 'Ali',
+    year: 1937,
+    genres: [ 'Fantasy', 'Adventure' ]
+  },
+  {
+    _id: ObjectId('69d285704dd197d1b2d90bc8'),
+    title: 'Book1',
+    author: 'Ali',
+    year: 1937,
+    genres: [ 'Fantasy', 'Adventure' ]
+  },
+  {
+    _id: ObjectId('69d28579185762f5244a9028'),
+    title: 'Book1',
+    author: 'Ali',
+    year: 1937,
+    genres: [ 'Fantasy', 'Adventure' ]
+  },
+  {
+    _id: ObjectId('69d286ab9e265bba82e1184e'),
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    year: 1960,
+    genres: [ 'Classic', 'Fiction' ]
+  },
+  {
+    _id: ObjectId('69d286f35019a5041a11402d'),
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    year: 1960,
+    genres: [ 'Classic', 'Fiction' ]
+  }
+]
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.deleteMany({ year: { $lt: 2000 } })
+{ acknowledged: true, deletedCount: 0 }

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre,skipAndLimit,checkYearInt} from "./book.service.js";
+import { insertIntoBookModel,insertManyIntoBookModel,updateBook,findBookbyTitle,findBooksBetweenYears,findBooKByGenre,skipAndLimit,checkYearInt, excludeGenres, deleteBeforeDate} from "./book.service.js";
 
 const router = Router()
 
@@ -52,6 +52,14 @@ router.get("/year-integer" , async (req,res,next)=>{
     return res.status(200).json({message:"Book Found" , result})
 })
 
+router.get("/exclude-genres" , async (req,res,next)=>{
+    const result =  await excludeGenres()
+    return res.status(200).json({message:"Book Found" , result})
+})
 
+router.delete("/before-year" , async (req,res,next)=>{
+    const result =  await deleteBeforeDate(req.query.year)
+    return res.status(200).json({message:"Books Deleted" , result})
+})
 
 export default router
