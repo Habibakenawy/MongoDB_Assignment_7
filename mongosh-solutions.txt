@@ -270,3 +270,10 @@ Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.aggregate([{
     genres: [ 'Dystopian', 'Science Fiction' ]
   }
 ]
+Atlas atlas-lx7w77-shard-0 [primary] MongoDB_Assignment_7> db.books.aggregate([{ $match: { year: { $gt: 2000 } } }, { $project: { _id: 0, title: 1, author: 1, year: 1 } }   ]).toArray();
+[
+  { title: 'Future', author: 'George Orwell', year: 2022 },
+  { title: 'Brave New World', author: 'Aldous Huxley', year: 2006 },
+  { title: 'Future', author: 'George Orwell', year: 2020 },
+  { title: 'Brave New World', author: 'Aldous Huxley', year: 2006 }
+]

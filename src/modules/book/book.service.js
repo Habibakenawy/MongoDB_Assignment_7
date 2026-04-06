@@ -66,4 +66,12 @@ export const aggregateBooksAfter2000 = async () => {
     .toArray();
 };
 
-
+export const aggregateBooksAfter2000AndExludeFields = async () => {
+  return await db
+    .collection("books")
+    .aggregate([
+      { $match: { year: { $gt: 2000 } } },
+      { $project: { _id: 0, title: 1, author: 1, year: 1 } },
+    ])
+    .toArray();
+};
